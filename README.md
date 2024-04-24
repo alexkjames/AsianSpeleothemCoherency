@@ -1,2 +1,2 @@
-# Holocene_Paleohydrological_Regimes_as_recorded_by_Indo-Asian_Speleothems
-Accompaniment to the paper Holocene Paleohydrological Regimes as recorded by Indo-Asian Speleothems
+# Holocene Paleohydrological Regimes as recorded by Asian Speleothems
+This repository gathers Jupyter notebooks to reproduce the analysis presented in the paper of the same name. 
