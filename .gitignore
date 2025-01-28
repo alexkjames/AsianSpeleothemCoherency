@@ -1,5 +1,7 @@
 #all pickle files
 *.pkl
 
+*.DS_Store
+
 #pickle directory
 pickle/ 
