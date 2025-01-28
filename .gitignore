@@ -1,0 +1,5 @@
+#all pickle files
+*.pkl
+
+#pickle directory
+pickle/ 
