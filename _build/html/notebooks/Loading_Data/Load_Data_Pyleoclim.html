@@ -1,0 +1,1153 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Loading data into Pyleoclim objects &#8212; Regime Shifts in Holocene Paleohydrology as Recorded by Asian Speleothems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Loading_Data/Load_Data_Pyleoclim';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The Detrended Stack" href="../Exploring_the_Data/DetrendedStack_Figure.html" />
+    <link rel="prev" title="Getting data into LiPD" href="Getting_data_into_LiPD.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.pdf" class="logo__image only-light" alt="Regime Shifts in Holocene Paleohydrology as Recorded by Asian Speleothems - Home"/>
+    <img src="../../_static/logo.pdf" class="logo__image only-dark pst-js-only" alt="Regime Shifts in Holocene Paleohydrology as Recorded by Asian Speleothems - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Global Speleothem Analysis Reveals State-Dependent Rainbelt Response to Orbital Forcing
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Loading Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Getting_data_into_LiPD.html">Getting data into LiPD</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Loading data into Pyleoclim objects</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploring the Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Exploring_the_Data/DetrendedStack_Figure.html">The Detrended Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Exploring_the_Data/Map_Data.html">Record Map</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Main Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Main_Analysis/Synthetic_Data.html">Synthetic Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Main_Analysis/KDE_Plots.html">KDE Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Main_Analysis/LERM_Plot.html">Laplacian Eigenmaps for Recurrence Matrices (LERM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Main_Analysis/MC_PCA_Analysis.html">MC-PCA on non-detrended speleothem data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/alexkjames/AsianSpeleothemCoherency" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/alexkjames/AsianSpeleothemCoherency/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Loading_Data/Load_Data_Pyleoclim.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/Loading_Data/Load_Data_Pyleoclim.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Loading data into Pyleoclim objects</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="loading-data-into-pyleoclim-objects">
+<h1>Loading data into Pyleoclim objects<a class="headerlink" href="#loading-data-into-pyleoclim-objects" title="Link to this heading">#</a></h1>
+<p>To simplify the remainder of the examples in this notebook, we’ll load the LiPD data into pickle objects which can be stored and easily loaded later. These are python native data objects, so we’re essentially trading the flexibility of the LiPD files for the convenience of pickle files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyleoclim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pyleo</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylipd.lipd</span><span class="w"> </span><span class="kn">import</span> <span class="n">LiPD</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make a directory for the pickle files if it doesn’t yet exist:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pickle_dir</span> <span class="o">=</span> <span class="s1">&#39;../../data/pickle&#39;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">pickle_dir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">pickle_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Loading and processing the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;../../data/LiPD/full&#39;</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">LiPD</span><span class="p">()</span>
+<span class="n">D</span><span class="o">.</span><span class="n">load_from_dir</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+<span class="n">lipd_records</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">get_all_dataset_names</span><span class="p">()</span>
+
+<span class="n">series_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">processed_series_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">ens_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">processed_ens_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">holocene_bounds</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">lipd_records</span><span class="p">):</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">LiPD</span><span class="p">()</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">record</span><span class="si">}</span><span class="s1">.lpd&#39;</span><span class="p">))</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">get_timeseries_essentials</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">series</span> <span class="o">=</span> <span class="n">pyleo</span><span class="o">.</span><span class="n">GeoSeries</span><span class="p">(</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time_values&#39;</span><span class="p">],</span>
+        <span class="n">value</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;paleoData_values&#39;</span><span class="p">],</span>
+        <span class="n">time_name</span> <span class="o">=</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span>
+        <span class="n">time_unit</span> <span class="o">=</span> <span class="s1">&#39;yrs BP&#39;</span><span class="p">,</span>
+        <span class="n">value_name</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\delta^</span><span class="si">{18}</span><span class="s1"> O$&#39;</span><span class="p">,</span>
+        <span class="n">value_unit</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;‰&#39;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">record</span><span class="p">,</span>
+        <span class="n">lat</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;geo_meanLat&#39;</span><span class="p">],</span>
+        <span class="n">lon</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;geo_meanLon&#39;</span><span class="p">],</span>
+        <span class="n">archiveType</span><span class="o">=</span><span class="s1">&#39;speleothem&#39;</span><span class="p">,</span>
+        <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span>   
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">record</span> <span class="o">==</span> <span class="s1">&#39;Qunf.Oman.2023&#39;</span><span class="p">:</span> <span class="c1"># Removing a large hiatus from the Qunf record</span>
+        <span class="n">series</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">slice</span><span class="p">((</span><span class="mi">2500</span><span class="p">,</span><span class="mi">10000</span><span class="p">))</span>
+
+    <span class="n">processed_series</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">holocene_bounds</span><span class="p">)</span><span class="o">.</span><span class="n">interp</span><span class="p">()</span><span class="o">.</span><span class="n">standardize</span><span class="p">()</span><span class="o">.</span><span class="n">detrend</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;savitzky-golay&#39;</span><span class="p">)</span>
+
+    <span class="n">series_dict</span><span class="p">[</span><span class="n">record</span><span class="p">]</span> <span class="o">=</span> <span class="n">series</span>
+    <span class="n">processed_series_dict</span><span class="p">[</span><span class="n">record</span><span class="p">]</span> <span class="o">=</span> <span class="n">processed_series</span>
+
+    <span class="n">ens_df</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">get_ensemble_tables</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ens_series_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">processed_ens_series_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span> <span class="c1">#We know there are 1000 ensemble members</span>
+        <span class="n">ens_series</span> <span class="o">=</span> <span class="n">pyleo</span><span class="o">.</span><span class="n">GeoSeries</span><span class="p">(</span>
+            <span class="n">time</span> <span class="o">=</span> <span class="n">ens_df</span><span class="p">[</span><span class="s1">&#39;ensembleVariableValues&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+            <span class="n">value</span><span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;paleoData_values&#39;</span><span class="p">],</span>
+            <span class="n">time_name</span> <span class="o">=</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span>
+            <span class="n">time_unit</span> <span class="o">=</span> <span class="s1">&#39;yrs BP&#39;</span><span class="p">,</span>
+            <span class="n">value_name</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\delta^</span><span class="si">{18}</span><span class="s1"> O$&#39;</span><span class="p">,</span>
+            <span class="n">value_unit</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;‰&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="n">record</span><span class="p">,</span>
+            <span class="n">lat</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;geo_meanLat&#39;</span><span class="p">],</span>
+            <span class="n">lon</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;geo_meanLon&#39;</span><span class="p">],</span>
+            <span class="n">archiveType</span><span class="o">=</span><span class="s1">&#39;speleothem&#39;</span><span class="p">,</span>
+            <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">record</span> <span class="o">==</span> <span class="s1">&#39;Qunf.Oman.2023&#39;</span><span class="p">:</span> <span class="c1"># Removing a large hiatus from the Qunf record</span>
+            <span class="n">ens_series</span> <span class="o">=</span> <span class="n">ens_series</span><span class="o">.</span><span class="n">slice</span><span class="p">((</span><span class="mi">2500</span><span class="p">,</span><span class="mi">10000</span><span class="p">))</span>
+        
+        <span class="n">processed_ens_series</span> <span class="o">=</span> <span class="n">ens_series</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">holocene_bounds</span><span class="p">)</span><span class="o">.</span><span class="n">interp</span><span class="p">()</span><span class="o">.</span><span class="n">standardize</span><span class="p">()</span><span class="o">.</span><span class="n">detrend</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;savitzky-golay&#39;</span><span class="p">)</span>
+
+        <span class="n">ens_series_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ens_series</span><span class="p">)</span>
+        <span class="n">processed_ens_series_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">processed_ens_series</span><span class="p">)</span>
+    
+    <span class="n">ens_dict</span><span class="p">[</span><span class="n">record</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyleo</span><span class="o">.</span><span class="n">EnsembleGeoSeries</span><span class="p">(</span><span class="n">ens_series_list</span><span class="p">)</span>
+    <span class="n">processed_ens_dict</span><span class="p">[</span><span class="n">record</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyleo</span><span class="o">.</span><span class="n">EnsembleGeoSeries</span><span class="p">(</span><span class="n">processed_ens_series_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 14 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                            | 0/14 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 14%|████████████                                                                        | 2/14 [00:00&lt;00:02,  4.25it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 29%|████████████████████████                                                            | 4/14 [00:00&lt;00:01,  6.88it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 36%|██████████████████████████████                                                      | 5/14 [00:00&lt;00:01,  5.81it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 43%|████████████████████████████████████                                                | 6/14 [00:01&lt;00:01,  5.91it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|██████████████████████████████████████████                                          | 7/14 [00:01&lt;00:01,  6.45it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|████████████████████████████████████████████████                                    | 8/14 [00:01&lt;00:01,  4.79it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 64%|██████████████████████████████████████████████████████                              | 9/14 [00:01&lt;00:01,  4.89it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 71%|███████████████████████████████████████████████████████████▎                       | 10/14 [00:01&lt;00:00,  5.34it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 79%|█████████████████████████████████████████████████████████████████▏                 | 11/14 [00:01&lt;00:00,  5.93it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 86%|███████████████████████████████████████████████████████████████████████▏           | 12/14 [00:02&lt;00:00,  5.77it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 93%|█████████████████████████████████████████████████████████████████████████████      | 13/14 [00:02&lt;00:00,  5.34it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|███████████████████████████████████████████████████████████████████████████████████| 14/14 [00:02&lt;00:00,  5.78it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                            | 0/14 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                             | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00, 12.42it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  7%|██████                                                                              | 1/14 [00:01&lt;00:22,  1.70s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                             | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  3.11it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  3.10it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 14%|████████████                                                                        | 2/14 [00:08&lt;00:59,  4.96s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                             | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00, 12.47it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|██████████████████                                                                  | 3/14 [00:10&lt;00:37,  3.38s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                             | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00, 12.40it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 29%|████████████████████████                                                            | 4/14 [00:12&lt;00:26,  2.68s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                             | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  4.22it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  4.21it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 36%|██████████████████████████████                                                      | 5/14 [00:15&lt;00:27,  3.08s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                             | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  6.13it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  6.11it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 43%|████████████████████████████████████                                                | 6/14 [00:18&lt;00:23,  2.92s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                             | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  8.19it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  8.14it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|██████████████████████████████████████████                                          | 7/14 [00:20&lt;00:18,  2.66s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                             | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  3.08it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  3.07it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|████████████████████████████████████████████████                                    | 8/14 [00:26&lt;00:22,  3.72s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                             | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  5.00it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  4.98it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 64%|██████████████████████████████████████████████████████                              | 9/14 [00:30&lt;00:18,  3.67s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                             | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  6.76it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  6.73it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 71%|███████████████████████████████████████████████████████████▎                       | 10/14 [00:32&lt;00:13,  3.39s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                             | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  7.63it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  7.58it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 79%|█████████████████████████████████████████████████████████████████▏                 | 11/14 [00:35&lt;00:09,  3.08s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                             | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  5.29it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  5.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 86%|███████████████████████████████████████████████████████████████████████▏           | 12/14 [00:38&lt;00:06,  3.24s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                             | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  4.50it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  4.49it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 93%|█████████████████████████████████████████████████████████████████████████████      | 13/14 [00:42&lt;00:03,  3.49s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 LiPD files
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                             | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00, 14.47it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|███████████████████████████████████████████████████████████████████████████████████| 14/14 [00:44&lt;00:00,  2.81s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|███████████████████████████████████████████████████████████████████████████████████| 14/14 [00:44&lt;00:00,  3.16s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plotting each record and its ensemble for QA/QC:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">series</span> <span class="ow">in</span> <span class="n">series_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">ens</span> <span class="o">=</span> <span class="n">ens_dict</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+    <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ens</span><span class="o">.</span><span class="n">common_time</span><span class="p">()</span><span class="o">.</span><span class="n">plot_envelope</span><span class="p">()</span>
+    <span class="n">series</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d093b04ac34ce63950f47385b79a2529bd49f71e491ebf95d61960898d4c0dba.png" src="../../_images/d093b04ac34ce63950f47385b79a2529bd49f71e491ebf95d61960898d4c0dba.png" />
+<img alt="../../_images/bbf4f839fea2fc62a7845e0f71aecee4d31eca31e1d974f45af88b7806f06661.png" src="../../_images/bbf4f839fea2fc62a7845e0f71aecee4d31eca31e1d974f45af88b7806f06661.png" />
+<img alt="../../_images/ecde472d601f7197b97f96e51d3080c33ed9913577e701d6667b4f028937fc2b.png" src="../../_images/ecde472d601f7197b97f96e51d3080c33ed9913577e701d6667b4f028937fc2b.png" />
+<img alt="../../_images/a9871d7d005fc7a99fac619375b0e05e75a3add776264ee97aefceb3d9f11246.png" src="../../_images/a9871d7d005fc7a99fac619375b0e05e75a3add776264ee97aefceb3d9f11246.png" />
+<img alt="../../_images/55b8df490e9e95dd997d3d8f5238b332ab39c766f22891007e7d8d8d47a5a283.png" src="../../_images/55b8df490e9e95dd997d3d8f5238b332ab39c766f22891007e7d8d8d47a5a283.png" />
+<img alt="../../_images/60336da638a628fb6579acafe2ed9bea3d98cf79c8d48fc610a4327958013b0c.png" src="../../_images/60336da638a628fb6579acafe2ed9bea3d98cf79c8d48fc610a4327958013b0c.png" />
+<img alt="../../_images/29a1be20bde23ceb548ee2c212fd71d9feb04ca7c85004cd6a9c164b8c6647da.png" src="../../_images/29a1be20bde23ceb548ee2c212fd71d9feb04ca7c85004cd6a9c164b8c6647da.png" />
+<img alt="../../_images/2aef33432cc7bb8cdb6e5f365bf764ddf316f39905a2bd96b6956f58eba453ed.png" src="../../_images/2aef33432cc7bb8cdb6e5f365bf764ddf316f39905a2bd96b6956f58eba453ed.png" />
+<img alt="../../_images/78816d608c3134f9d4e206606aff874c07b49d055b939f23388bb96be07f48b7.png" src="../../_images/78816d608c3134f9d4e206606aff874c07b49d055b939f23388bb96be07f48b7.png" />
+<img alt="../../_images/49f1506d4642d19f6cb35b0b46cf8b655029751b3ebc06bffad1bd200e74b266.png" src="../../_images/49f1506d4642d19f6cb35b0b46cf8b655029751b3ebc06bffad1bd200e74b266.png" />
+<img alt="../../_images/66c0ca3d31747fc5c60c26636059f3b08ff3ce10387b98343b433a961d0c8f5c.png" src="../../_images/66c0ca3d31747fc5c60c26636059f3b08ff3ce10387b98343b433a961d0c8f5c.png" />
+<img alt="../../_images/aee29c22ca820c0ac2101f2b7781f9599c924fb66c99c877fb6b7f420ffc0510.png" src="../../_images/aee29c22ca820c0ac2101f2b7781f9599c924fb66c99c877fb6b7f420ffc0510.png" />
+<img alt="../../_images/ddcf7d869d7732c4b218aebb5505b834b084b68c6ade7fdb5aa67ec6d9ee4a85.png" src="../../_images/ddcf7d869d7732c4b218aebb5505b834b084b68c6ade7fdb5aa67ec6d9ee4a85.png" />
+<img alt="../../_images/bc8230f2b81aa96ea0763939f81a3f83c4afb27694067e5c05b1f07c28f08dae.png" src="../../_images/bc8230f2b81aa96ea0763939f81a3f83c4afb27694067e5c05b1f07c28f08dae.png" />
+</div>
+</div>
+<p>Saving the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/pickle/series_dict.pkl&#39;</span><span class="p">,</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">series_dict</span><span class="p">,</span><span class="n">handle</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/pickle/ens_dict.pkl&#39;</span><span class="p">,</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">ens_dict</span><span class="p">,</span><span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plotting each processed record and its ensemble for QA/QC:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">series</span> <span class="ow">in</span> <span class="n">processed_series_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">ens</span> <span class="o">=</span> <span class="n">processed_ens_dict</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+    <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ens</span><span class="o">.</span><span class="n">common_time</span><span class="p">()</span><span class="o">.</span><span class="n">plot_envelope</span><span class="p">()</span>
+    <span class="n">series</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/6bd373d34bc235631b82888d7ffe44296b3abd0fe69537474f5dfaa539b38040.png" src="../../_images/6bd373d34bc235631b82888d7ffe44296b3abd0fe69537474f5dfaa539b38040.png" />
+<img alt="../../_images/85f22246d0108b6c373f76ea650e8627a1fc72f41bd28e06870ea33dc324d00d.png" src="../../_images/85f22246d0108b6c373f76ea650e8627a1fc72f41bd28e06870ea33dc324d00d.png" />
+<img alt="../../_images/372f17de3a021cd2fa4cd2f9e45167a6745de63c595a79b4d6d0febba26d77f5.png" src="../../_images/372f17de3a021cd2fa4cd2f9e45167a6745de63c595a79b4d6d0febba26d77f5.png" />
+<img alt="../../_images/1c739265542b22d8dfaca140bc12f8452e85a58a6e1168975858574c8d2ce6f8.png" src="../../_images/1c739265542b22d8dfaca140bc12f8452e85a58a6e1168975858574c8d2ce6f8.png" />
+<img alt="../../_images/96e3e595e57fe3c841a490e32d69fc159a072dcce74697082fce8dc87bbe31f6.png" src="../../_images/96e3e595e57fe3c841a490e32d69fc159a072dcce74697082fce8dc87bbe31f6.png" />
+<img alt="../../_images/4596d9f55cccd990221a08ee0682ba83de7e36209549e3af5601e25ecfeb5519.png" src="../../_images/4596d9f55cccd990221a08ee0682ba83de7e36209549e3af5601e25ecfeb5519.png" />
+<img alt="../../_images/92311d5029912b43c47fb3f90d2725f1269424138ddbf27c2c2ef545cd7337ca.png" src="../../_images/92311d5029912b43c47fb3f90d2725f1269424138ddbf27c2c2ef545cd7337ca.png" />
+<img alt="../../_images/f837b84cb26653d76a610581fc306f6daa28cbb55434336b45cbb356cc871f3c.png" src="../../_images/f837b84cb26653d76a610581fc306f6daa28cbb55434336b45cbb356cc871f3c.png" />
+<img alt="../../_images/49f31cd4abd7862bae689f81465b16720e2ccd2c44c5308266c2a73ce67a34c0.png" src="../../_images/49f31cd4abd7862bae689f81465b16720e2ccd2c44c5308266c2a73ce67a34c0.png" />
+<img alt="../../_images/d5cd0379deff2f675a9e1aaf569cdbb2eed187128e374e781d0caf875e255af5.png" src="../../_images/d5cd0379deff2f675a9e1aaf569cdbb2eed187128e374e781d0caf875e255af5.png" />
+<img alt="../../_images/c15664c401445ce632c597375cb73e50154cf9ab20550b6a567159df6ca10fbb.png" src="../../_images/c15664c401445ce632c597375cb73e50154cf9ab20550b6a567159df6ca10fbb.png" />
+<img alt="../../_images/5e4ba8cc4c1d234bfa1633a5e7ca1421c2b51d8a725468d74cd39b730a642daf.png" src="../../_images/5e4ba8cc4c1d234bfa1633a5e7ca1421c2b51d8a725468d74cd39b730a642daf.png" />
+<img alt="../../_images/736485733618ca000061078105c9be21b7288d76dfa1b69164757bd871578d48.png" src="../../_images/736485733618ca000061078105c9be21b7288d76dfa1b69164757bd871578d48.png" />
+<img alt="../../_images/ce2520a0f5b7a218a5337264e66e5087136f65ddcb6b40b7f703833a50c5e4e2.png" src="../../_images/ce2520a0f5b7a218a5337264e66e5087136f65ddcb6b40b7f703833a50c5e4e2.png" />
+</div>
+</div>
+<p>Saving the processed records and their ensembles:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/pickle/preprocessed_series_dict.pkl&#39;</span><span class="p">,</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">processed_series_dict</span><span class="p">,</span><span class="n">handle</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../../data/pickle/preprocessed_ens_dict.pkl&#39;</span><span class="p">,</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">processed_ens_dict</span><span class="p">,</span><span class="n">handle</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/Loading_Data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Getting_data_into_LiPD.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Getting data into LiPD</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Exploring_the_Data/DetrendedStack_Figure.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Detrended Stack</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Alexander James
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
