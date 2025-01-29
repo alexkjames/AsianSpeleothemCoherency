@@ -1,0 +1,17 @@
+format: jb-book
+root: intro
+parts:
+  - caption: Loading Data
+    chapters:
+      - file: notebooks/Loading_Data/Getting_data_into_LiPD
+      - file: notebooks/Loading_Data/Load_Data_Pyleoclim
+  - caption: Exploring the Data
+    chapters:
+      - file: notebooks/Exploring_the_Data/DetrendedStack_Figure
+      - file: notebooks/Exploring_the_Data/Map_Data
+  - caption: Main Analysis
+    chapters:
+      - file: notebooks/Main_Analysis/Synthetic_Data
+      - file: notebooks/Main_Analysis/KDE_Plots
+      - file: notebooks/Main_Analysis/LERM_Plot
+      - file: notebooks/Main_Analysis/MC_PCA_Analysis
