@@ -1,12 +1,12 @@
 shortname: Regime Shifts in Holocene Paleohydrology as Recorded by Asian Speleothems
 type: Paleobook
-thumbnail: logo
+thumbnail: logo.pdf
 parts:
   - caption: Loading Data
     chapters:
       - shortname: Getting data into LiPD
         filename: Getting_data_into_LiPD
-        thumbnail: pyLiPD_logo
+        thumbnail: pyLiPD_logo.pdf
         tags:
           domains:
             - data wrangling
@@ -14,7 +14,7 @@ parts:
             - pyLiPD
       - shortname: Loading Data
         filename: Load_Data_Pyleoclim
-        thumbnail: pyleoclim_insignia_full_white
+        thumbnail: pyleoclim_insignia_full_white.pdf
         tags:
           domains:
             - data wrangling
@@ -25,7 +25,7 @@ parts:
     chapters:
       - shortname: Detrended Stackplot
         filename: DetrendedStack_Figure
-        thumbnail: detrended_ensembles
+        thumbnail: detrended_ensembles.pdf
         tags:
           domains:
             - data viz
@@ -35,7 +35,7 @@ parts:
             - matplotlib
       - shortname: Mapping Data
         filename: Map_Data
-        thumbnail: speleothem_timeseries_map
+        thumbnail: speleothem_timeseries_map.pdf
         tags:
           domains:
             - data viz
@@ -47,7 +47,7 @@ parts:
     chapters:
       - shortname: Synthetic Data
         filename: Synthetic_Data
-        thumbnail: synthetic_snr
+        thumbnail: synthetic_snr.pdf
         tags:
           domains:
             - data viz
@@ -57,7 +57,7 @@ parts:
             - matplotlib
       - shortname: Kernel Density Estimation
         filename: KDE_Plots
-        thumbnail: interval_4k_diff_snr
+        thumbnail: interval_4k_diff_snr.pdf
         tags:
           domains:
             - data analysis
@@ -65,9 +65,9 @@ parts:
           packages:
             - matplotlib
             - pyleoclim
-      - shortname: Detecting Regime Shifts with LERM
+      - shortname: Detecting Regime Shifts
         filename: LERM_Plot
-        thumbnail: speleothem_lerm
+        thumbnail: speleothem_lerm.pdf
         tags:
           domains:
             - data viz
@@ -76,9 +76,9 @@ parts:
             - pyleoclim
             - ammonyte
             - matplotlib
-      - shortname: Monte Carlo Principal Component Analysis
+      - shortname: MC PCA Analysis
         filename: MC_PCA_Analysis
-        thumbnail: mcpca_all_1
+        thumbnail: mcpca_all_1.pdf
         tags:
           domains:
             - data viz
