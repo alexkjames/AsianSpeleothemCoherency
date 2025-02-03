@@ -1,6 +1,6 @@
 shortname: Asian Speleothem Coherency
 type: Paleobook
-thumbnail: logo.png
+thumbnail: speleothem_timeseries_map.png
 parts:
   - caption: Loading Data
     chapters:
