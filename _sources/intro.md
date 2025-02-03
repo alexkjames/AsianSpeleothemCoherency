@@ -1,4 +1,4 @@
-# Global Speleothem Analysis Reveals State-Dependent Rainbelt Response to Orbital Forcing
+# Regime Shifts in Holocene Paleohydrology as Recorded by Asian Speleothems
 
 This repository contains the notebooks used to generate figures and conduct analysis from the paper *Regime Shifts in Holocene Paleohydrology as Recorded by Asian Speleothems*.
 
